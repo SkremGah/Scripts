@@ -1,5 +1,6 @@
+warn("Line 1")
 repeat task.wait() until game:IsLoaded()
-
+warn("Line 3")
 if game.PlaceId == 18710647408 then
 
 
