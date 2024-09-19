@@ -1,6 +1,5 @@
-warn("Line 1")
 repeat task.wait() until game:IsLoaded()
-warn("Line 3")
+
 if game.PlaceId == 18710647408 then
 
 
@@ -96,8 +95,6 @@ if game.PlaceId == 18710647408 then
 		until Found ~= nil
 
 
-
-		--Found.Lift.InsidePart.CFrame = Character.PrimaryPart.CFrame
 
 		Found.Touch.CanCollide = false
 
@@ -345,6 +342,7 @@ local args = {
 PlaceTower:InvokeServer(unpack(args))
 
 Step = 5
+end
 end
 end
 end
