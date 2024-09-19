@@ -1,0 +1,349 @@
+repeat task.wait() until game:IsLoaded()
+
+if game.PlaceId == 18710647408 then
+
+
+
+	local Player = game.Players.LocalPlayer
+
+	local Character = Player.Character
+
+	local Elevators1 = workspace.Elevators
+
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+	local ElevatorEvent = ReplicatedStorage.Remotes:WaitForChild("Elevator")
+
+	local Found = nil
+
+	local Highlight = Instance.new("Highlight")
+
+
+
+	game.Players.PlayerAdded:Connect(function()
+
+		if #game.Players:GetPlayers() > 1 then
+
+			local data = {["content"] = "@here REACTIVATE SCRIPT DUMBO",}
+
+			local response = request( { Url = 'https://discord.com/api/webhooks/1274382989933154426/KDtDBD17rgEq0nCsyH_wE5Vje9yyQ6QOkptL2TwEGqw70XaWTH4PIBICOvpBnH1Gn95k', Method = 'POST', Headers = { ['Content-Type'] = 'application/json' }, Body = game:GetService('HttpService'):JSONEncode(data) } );
+
+			task.wait(1)
+
+			Player:Kick("YOU'RE IN A PUBLIC SERVER ! ! !")
+
+		end
+
+	end)
+
+
+
+	if #game.Players:GetPlayers() > 1 then
+
+		local data = {["content"] = "@here REACTIVATE SCRIPT DUMBO",}
+
+		local response = request( { Url = 'https://discord.com/api/webhooks/1274382989933154426/KDtDBD17rgEq0nCsyH_wE5Vje9yyQ6QOkptL2TwEGqw70XaWTH4PIBICOvpBnH1Gn95k', Method = 'POST', Headers = { ['Content-Type'] = 'application/json' }, Body = game:GetService('HttpService'):JSONEncode(data) } );
+
+		task.wait(1)
+
+		Player:Kick("YOU'RE IN A PUBLIC SERVER ! ! !")
+
+	end
+
+
+
+	local Elevators = {}
+
+	for i , v in ipairs(Elevators1:GetChildren()) do
+
+		if not table.find(Elevators, v) then
+
+			table.insert(Elevators, v)
+
+		end
+
+	end
+
+
+
+	function Start()
+
+		repeat 
+
+			task.wait()
+
+			for i , v in ipairs(Elevators) do
+
+				task.wait()
+
+				if v.MapScreen.Display.Title.Text == "Crossroads" then
+
+					Found = v
+
+					Highlight.Parent = v
+
+					--game.Debris:AddItem(Highlight, 30)
+
+
+
+					break
+
+				end
+
+			end
+
+		until Found ~= nil
+
+
+
+		--Found.Lift.InsidePart.CFrame = Character.PrimaryPart.CFrame
+
+		Found.Touch.CanCollide = false
+
+		task.wait()
+
+		if Found.MapScreen.Display.Title.Text == "Crossroads" then
+
+			Found.Touch.CFrame = Character.PrimaryPart.CFrame
+
+			task.wait()
+
+			if Found.MapScreen.Display.Title.Text == "Crossroads" then
+
+				task.wait(0.2)
+
+				repeat 
+
+					task.wait(1)
+
+					if Found.MapScreen.Display.Title.Text ~= "Crossroads" then
+
+						ElevatorEvent:InvokeServer("Leave")
+
+						Found = nil
+
+						Highlight.Parent = nil
+
+						Start()
+
+					end
+
+				until Found == nil
+
+			else
+
+				ElevatorEvent:InvokeServer("Leave")
+
+				Found = nil
+
+				Highlight.Parent = nil
+
+				Start()
+
+			end
+
+		else
+
+			ElevatorEvent:InvokeServer("Leave")
+
+			Found = nil
+
+			Highlight.Parent = nil
+
+			Start()
+
+		end
+
+	end
+
+	
+
+	local data = 
+
+		{
+
+			["content"] = "",
+
+			["embeds"] = {{
+
+				["title"] = "**"..game.Players.LocalPlayer.Name.."'s Stats**",
+
+				["description"] = "",
+
+				["type"] = "rich",
+
+				["color"] = tonumber(0xffffff),
+
+				["fields"] = {
+
+					{
+
+						["name"] = "Cash:",
+
+						["value"] = Player.PlayerGui.HUD.Main.Cash.Text
+
+					},
+
+					{
+
+						["name"] = "Level:",
+
+						["value"] = Player.PlayerGui.HUD.Main.Exp.Level.Text
+
+					},
+
+					{
+
+						["name"] = "Exp:",
+
+						["value"] = Player.PlayerGui.HUD.Main.Exp.CurrentExp.Text.."/"..Player.PlayerGui.HUD.Main.Exp.NeededExp.Text
+
+					},
+
+				}
+
+			}}
+
+		}
+
+	
+
+	local response = request( { Url = 'https://discord.com/api/webhooks/1274382989933154426/KDtDBD17rgEq0nCsyH_wE5Vje9yyQ6QOkptL2TwEGqw70XaWTH4PIBICOvpBnH1Gn95k', Method = 'POST', Headers = { ['Content-Type'] = 'application/json' }, Body = game:GetService('HttpService'):JSONEncode(data) } );
+
+	
+
+	Start()
+
+
+
+elseif game.PlaceId == 18713312515 then
+
+	local data = {["content"] = "Started",}
+
+	local response = request( { Url = 'https://discord.com/api/webhooks/1274382989933154426/KDtDBD17rgEq0nCsyH_wE5Vje9yyQ6QOkptL2TwEGqw70XaWTH4PIBICOvpBnH1Gn95k', Method = 'POST', Headers = { ['Content-Type'] = 'application/json' }, Body = game:GetService('HttpService'):JSONEncode(data) } );
+
+	local Player = game.Players.LocalPlayer
+
+	local Character = Player.Character
+
+	local Money = Player:WaitForChild("Cash") 
+
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+	local Remotes = ReplicatedStorage.Remotes
+
+	local PlaceTower = Remotes.PlaceUnit
+
+	local UT = Remotes.UseUnit
+
+	local Part = 1
+
+	local Step = 1
+
+	local Towers = workspace.Game.Units
+	local StuffDebounce = false
+
+
+
+	local function CountTowers(TowerName)
+
+		local Count = 0
+
+
+
+		for _, Tower in ipairs(workspace.Game.Units:GetChildren()) do				
+
+			local nameWithoutNumbers = string.gsub(Tower.Name, "%d", "")
+
+			if nameWithoutNumbers == TowerName then
+
+				Count = Count + 1
+
+			end
+
+		end
+
+
+
+		return Count
+
+	end
+
+
+
+	task.spawn(function()
+
+		repeat
+
+			task.wait(3)
+
+	Remotes.Vote:FireServer("Insane")
+
+		until workspace.Game.Info.Wave.Value == 40
+
+	end)
+
+
+
+	workspace.Game.Units.ChildAdded:Connect(function(Tower)
+
+		local CountTower = CountTowers(Tower.Name)
+
+		Tower.Name = Tower.Name..CountTower
+
+	end)
+
+
+
+	task.spawn(function()
+
+		Remotes.Vote:FireServer("Insane")
+
+	end)
+
+
+
+	repeat task.wait() until workspace.Game.Info.Voting.Value == false
+
+
+
+while task.wait(0.5) do
+if Step == 1 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.091655731201172, -2.809333086013794, 7.7218017578125) * CFrame.Angles(-0, 0, -0)
+}
+Step = 2
+warn("vro?")
+PlaceTower:InvokeServer(unpack(args))
+warn("erm sigma")
+elseif Step == 2 then
+local args = {
+    [1] = Towers.Paintballer1,
+    [2] = "Upgrade"
+}
+
+UT:InvokeServer(unpack(args))
+Step = 3
+elseif Step == 3 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer1,
+    [2] = "Upgrade"
+}
+Step = 4
+end
+elseif Step == 4 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.016386032104492, -2.809333086013794, 9.592832565307617) * CFrame.Angles(-0, 0, -0)
+}
+
+
+PlaceTower:InvokeServer(unpack(args))
+
+Step = 5
+end
+end
+end
