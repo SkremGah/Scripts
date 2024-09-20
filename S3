@@ -275,8 +275,7 @@ elseif game.PlaceId == 18713312515 then
 
 			task.wait(3)
 
-	Remotes.Vote:FireServer("Insane")
-
+	Remotes.Skip:FireServer()
 		until workspace.Game.Info.Wave.Value == 40
 
 	end)
@@ -329,6 +328,7 @@ local args = {
     [1] = Towers.Paintballer1,
     [2] = "Upgrade"
 }
+UT:InvokeServer(unpack(args))
 Step = 4
 end
 elseif Step == 4 then
@@ -337,11 +337,102 @@ local args = {
     [1] = "Paintballer",
     [2] = CFrame.new(3.016386032104492, -2.809333086013794, 9.592832565307617) * CFrame.Angles(-0, 0, -0)
 }
+PlaceTower:InvokeServer(unpack(args))
+Step = 5
+end
+elseif Step == 5 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer2,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 6
+end
+elseif Step == 6 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer2,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 7
+end
+elseif Step == 7 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0640621185302734, -2.809333086013794, 11.574827194213867) * CFrame.Angles(-0, 0, -0)
+}
 
+PlaceTower:InvokeServer(unpack(args))
+Step = 8
+end
+elseif Step == 8 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer3,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 9
+end
+elseif Step == 9 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer3,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 10
+end
+elseif Step == 10 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0167007446289062, -2.809333086013794, 13.485227584838867) * CFrame.Angles(-0, 0, -0)
+}
 
 PlaceTower:InvokeServer(unpack(args))
 
-Step = 5
+Step = 11
+end
+elseif Step == 11 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer4,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 12
+end
+elseif Step == 12 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer4,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 13
+end
+elseif Step == 13 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0332584381103516, -2.809333086013794, 5.822877883911133) * CFrame.Angles(-0, 0, -0)
+}
+
+PlaceTower:InvokeServer(unpack(args))
+Step = 14
+end
+elseif Step == 14 then
+if Money.Value >= 700 then
+local args = {
+    [1] = Towers.Paintballer1,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 15
 end
 end
 end
