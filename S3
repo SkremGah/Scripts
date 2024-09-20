@@ -273,7 +273,7 @@ elseif game.PlaceId == 18713312515 then
 
 		repeat
 
-			task.wait(3)
+			task.wait(0.5)
 
 	Remotes.Skip:FireServer()
 		until workspace.Game.Info.Wave.Value == 40
@@ -426,13 +426,214 @@ PlaceTower:InvokeServer(unpack(args))
 Step = 14
 end
 elseif Step == 14 then
-if Money.Value >= 700 then
+if Money.Value >= 400 then
 local args = {
-    [1] = Towers.Paintballer1,
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0519301891326904, -2.9093334674835205, 1.1281628608703613) * CFrame.Angles(-0, 0, -0)
+}
+
+PlaceTower:InvokeServer(unpack(args))
+
+Step = 15
+end
+elseif Step == 15 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.045045852661133, -2.809333086013794, 15.30313777923584) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 16
+end
+elseif Step == 16 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0856590270996094, -2.809333086013794, 17.178346633911133) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+Step = 17
+end
+elseif Step == 17 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(2.9855690002441406, -2.809333086013794, 19.015056610107422) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 18
+end
+elseif Step == 18 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0523452758789062, -2.809333086013794, 20.772960662841797) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 19
+end
+elseif Step == 19 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0519301891326904, -2.9093334674835205, 1.1281628608703613) * CFrame.Angles(-0, 0, -0)
+}
+
+PlaceTower:InvokeServer(unpack(args))
+
+Step = 20
+end
+elseif Step == 20 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.0523452758789062, -2.809333086013794, 20.772960662841797) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 21
+end
+elseif Step == 21 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(3.119722366333008, -2.809333086013794, 22.616098403930664) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 22
+end
+elseif Step == 22 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(1.1711559295654297, -2.809333086013794, 7.350130081176758) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 23
+end
+elseif Step == 23 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(1.2490653991699219, -2.809333086013794, 5.441865921020508) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 24
+end
+elseif Step == 24 then
+if Money.Value >= 400 then
+local args = {
+    [1] = "Paintballer",
+    [2] = CFrame.new(1.216440200805664, -2.809333086013794, 9.300893783569336) * CFrame.Angles(-0, 0, -0)
+}
+
+game:GetService("ReplicatedStorage").Remotes.PlaceUnit:InvokeServer(unpack(args))
+
+Step = 25
+end
+elseif Step == 25 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer5,
     [2] = "Upgrade"
 }
 UT:InvokeServer(unpack(args))
-Step = 15
+Step = 26
+end
+elseif Step == 26 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer5,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 27
+end
+elseif Step == 27 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer6,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 28
+end
+elseif Step == 28 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer6,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 29
+end
+elseif Step == 29 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer7,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 30
+end
+elseif Step == 30 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer7,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 31
+end
+elseif Step == 31 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer8,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 32
+end
+elseif Step == 32 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer8,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 33
+end
+elseif Step == 33 then
+if Money.Value >= 200 then
+local args = {
+    [1] = Towers.Paintballer9,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 34
+end
+elseif Step == 34 then
+if Money.Value >= 500 then
+local args = {
+    [1] = Towers.Paintballer9,
+    [2] = "Upgrade"
+}
+UT:InvokeServer(unpack(args))
+Step = 35
 end
 end
 end
