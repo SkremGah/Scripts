@@ -635,6 +635,17 @@ local args = {
 UT:InvokeServer(unpack(args))
 Step = 35
 end
+elseif Step == 35 then
+if workspace.Game.Info.Wave.Value >= 19 then
+Step = 36
+for i , v in ipairs(Towers:GetChildren()) do
+local args = {
+    [1] = v,
+    [2] = "Sell"
+}
+UT:InvokeServer(unpack(args))
+end
+end
 end
 end
 end
