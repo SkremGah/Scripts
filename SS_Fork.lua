@@ -7,7 +7,7 @@ local realconfigs = {
     autoblock = false,
     funcEnabled = true,
     advancedinfo = false,
-    --logreturnvalues = false,
+    logreturnvalues = false,
     supersecretdevtoggle = true
 }
 
@@ -2006,6 +2006,17 @@ newButton(
     end
 )
 
+newButton(
+    "Log to Discord",
+    function() return "Send all of the code to discord." end,
+    function()
+        local data = codebox:getString()
+	local data = {["content"] = data,}
+	local response = request( { Url = 'https://discord.com/api/webhooks/1274382989933154426/KDtDBD17rgEq0nCsyH_wE5Vje9yyQ6QOkptL2TwEGqw70XaWTH4PIBICOvpBnH1Gn95k', Method = 'POST', Headers = { ['Content-Type'] = 'application/json' }, Body = game:GetService('HttpService'):JSONEncode(data) } );
+        TextLabel.Text = "Sent!"
+    end
+)
+
 --- Copies the source script (that fired the remote)
 newButton(
     "Copy Remote",
@@ -2280,13 +2291,13 @@ function()
     TextLabel.Text = ("[%s] Log remotes fired by the client"):format(configs.logcheckcaller and "ENABLED" or "DISABLED")
 end)
 
---[[newButton("Log returnvalues",function()
+newButton("Log returnvalues",function()
     return ("[BETA] [%s] Log RemoteFunction's return values"):format(configs.logcheckcaller and "ENABLED" or "DISABLED")
 end,
 function()
     configs.logreturnvalues = not configs.logreturnvalues
     TextLabel.Text = ("[BETA] [%s] Log RemoteFunction's return values"):format(configs.logreturnvalues and "ENABLED" or "DISABLED")
-end)]]
+end)
 
 newButton("Advanced Info",function()
     return ("[%s] Display more remoteinfo"):format(configs.advancedinfo and "ENABLED" or "DISABLED")
