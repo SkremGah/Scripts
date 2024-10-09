@@ -115,7 +115,7 @@ function output(msg, col)
 	local hours=os.date("*t")["hour"]
 	local mins=os.date("*t")["min"]
 	local sec=os.date("*t")["sec"]
-	local colour=Color3.fromRGB(col)
+	local colour=col
 	local o=Instance.new("TextLabel",Scroll)
 	o.Text="["..hours..":"..mins..":"..sec.."] "..msg 
 	o.Size=UDim2.new(0.005,0,0.001,0)
