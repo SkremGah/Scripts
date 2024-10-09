@@ -631,9 +631,9 @@ if CheckPlace() then
 			end
 		end) 
 		--End Of Match
-		local MatchGui = LocalPlayer.PlayerGui.ReactGame.Rewards.content.gameOver or LocalPlayer.PlayerGui.RoactGame.Rewards.content.gameOver
-		local Info = MatchGui.content.info
-		local Rewards = Info.rewards
+		local MatchGui = LocalPlayer.PlayerGui.ReactGame:WaitForChild("Rewards"):WaitForChild("content"):WaitForChild("gameOver") or LocalPlayer.PlayerGui.RoactGame:WaitForChild("Rewards"):WaitForChild("content"):WaitForChild("gameOver")
+		local Info = MatchGui:WaitForChild("content"):WaitForChild("info")
+		local Rewards = Info:WaitForChild("rewards")
 		function CheckReward()
 			local RewardType,RewardAmount
             --[[repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
