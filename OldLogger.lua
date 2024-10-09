@@ -125,7 +125,7 @@ end
 
 output("Fork with Old UI made by Skrem <3", Color3.fromRGB(255,0,0))
 
-local DefaultSize = 0.9
+local DefaultSize = 0.875
 if not LoggerByBanbus:FindFirstChildOfClass("UIScale") then
 	Instance.new("UIScale", LoggerByBanbus)
 end
@@ -136,7 +136,6 @@ local RatioMultiplied = Ratio * DefaultSize
 UiScale.Scale = RatioMultiplied
 
 workspace:WaitForChild("Camera"):GetPropertyChangedSignal("ViewportSize"):Connect(function()
-	local DefaultSize = 0.925
 	if not LoggerByBanbus:FindFirstChildOfClass("UIScale") then
 		Instance.new("UIScale", LoggerByBanbus)
 	end
