@@ -61,8 +61,6 @@ Scroll.TopImage="rbxassetid://5234388158"
 Scroll.VerticalScrollBarInset=Enum.ScrollBarInset.Always 
 local output=nil
 local function drag()
-	local script=Instance.new('LocalScript',Main)
-	script.Name="Dragify"
 	local UIS=game:GetService("UserInputService")
 	function dragify(Frame)
 		dragToggle=nil 
@@ -97,17 +95,9 @@ local function drag()
 			end
 		end)
 	end
-	dragify(script.Parent)
+	dragify(Main)
 end
-
 drag()
-
-local function positioning()
-	local script=Instance.new('LocalScript',Main)
-	script.Name="Positioning"
-	script.Parent:TweenPosition(UDim2.new(0.5,0,0.5,0),"Out","Quad",1)
-	script.Parent.Draggable=true
-end
 function output(msg, col)
 	if col == nil then
 		col=Color3.fromRGB(255,255,255)
@@ -133,8 +123,6 @@ function output(msg, col)
 end 
 
 output("Fork with Old UI made by Skrem <3", Color3.fromRGB(255,0,0))
-
-positioning()
 
 local DefaultSize = 0.9
 if not LoggerByBanbus:FindFirstChildOfClass("UIScale") then
