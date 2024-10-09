@@ -131,6 +131,9 @@ function output(msg, col)
 	o.TextXAlignment=Enum.TextXAlignment.Left
 	o.ClipsDescendants=true prevOutputPos=prevOutputPos+0.0005 
 end 
+
+output("Fork with Old UI made by Skrem <3", Color3.fromRGB(255,0,0))
+
 positioning()
 
 local DefaultSize = 0.9
