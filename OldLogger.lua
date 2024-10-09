@@ -1,5 +1,6 @@
 local BeautyTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/TableBeauty/master/repr.lua"))() --Supports More Features Made By: Ozzypig
 
+local CoreGui = game:GetService("CoreGui")
 local LoggerByBanbus=Instance.new("ScreenGui")
 local Main=Instance.new("Frame")
 local Glow=Instance.new("ImageLabel")
@@ -8,7 +9,7 @@ local Title=Instance.new("TextLabel")
 local Scroll=Instance.new("ScrollingFrame")
 local prevOutputPos=-0.0073
 LoggerByBanbus.Name="AutoStratsLogger"
-LoggerByBanbus.Parent=game:WaitForChild("Players").LocalPlayer.PlayerGui
+LoggerByBanbus.Parent=CoreGui
 LoggerByBanbus.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
 Main.Name="Main"
 Main.Parent=LoggerByBanbus
