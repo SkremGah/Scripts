@@ -667,8 +667,8 @@ if CheckPlace() then
 			task.wait(1)
 			local PlayerInfo = StratXLibrary.UI.PlayerInfo
 			local GetRewardInfo = CheckReward()
-			PlayerInfo.Property[GetGameState():GetAttribute("Won") and "Triumphs" or "Loses"] += 1
-			PlayerInfo.Property[GetRewardInfo[1]] += GetRewardInfo[2]
+			--PlayerInfo.Property[GetGameState():GetAttribute("Won") and "Triumphs" or "Loses"] += 1
+			--PlayerInfo.Property[GetRewardInfo[1]] += GetRewardInfo[2]
 			for i,v in next, PlayerInfo.Property do
 				PlayerInfo[i].Text = `{i}: {v}`
 			end
