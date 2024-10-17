@@ -124,8 +124,9 @@ function output(msg, col)
 end 
 
 output("Fork with Old UI made by Skrem <3", Color3.fromRGB(255,0,0))
+output("I'd put your config stuff here, but I don't feel like")
 
-local DefaultSize = 0.875
+local DefaultSize = 0.84
 if not LoggerByBanbus:FindFirstChildOfClass("UIScale") then
 	Instance.new("UIScale", LoggerByBanbus)
 end
