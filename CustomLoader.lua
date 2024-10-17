@@ -636,14 +636,15 @@ if CheckPlace() then
 		local Rewards = Info:WaitForChild("rewards")
 		function CheckReward()
 			local RewardType,RewardAmount
-            --[[repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
-            if Rewards[2].content.icon.Image == "rbxassetid://5870325376" then
-               RewardType = "Coins"
-            else
-               RewardType = "Gems"
-            end
-            RewardAmount = tonumber(Rewards[2].content.textLabel.Text)
-            ]]
+          	 	repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
+            		if Rewards[2].content.icon.Image == "rbxassetid://5870325376" then
+               			RewardType = "Coins"
+           		else
+              			RewardType = "Gems"
+           		end
+            		RewardAmount = tonumber(Rewards[2].content.textLabel.Text)
+
+			--[[												
 			if GetPlayerState():GetAttribute("CoinsReward") then
 				RewardType = "Coins"
 				RewardAmount = GetPlayerState():GetAttribute("CoinsReward")
@@ -651,6 +652,7 @@ if CheckPlace() then
 				RewardType = "Gems"
 				RewardAmount = GetPlayerState():GetAttribute("GemsReward")
 			end
+			]]
 			return {RewardType, RewardAmount}
 		end
 		StratXLibrary.SignalEndMatch = GetGameState():GetAttributeChangedSignal("GameOver"):Connect(function()
