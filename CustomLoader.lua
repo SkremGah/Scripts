@@ -658,9 +658,9 @@ if CheckPlace() then
 		end
 		StratXLibrary.SignalEndMatch = GetGameState():GetAttributeChangedSignal("GameOver"):Connect(function()
 			prints("GameOver Changed")
-			if not GetGameState():GetAttribute("GameOver") then --true/false like Value,but not check this Attribute exists
-				return
-			end
+			--if not GetGameState():GetAttribute("GameOver") then --true/false like Value,but not check this Attribute exists
+			--	return
+			--end
 			StratXLibrary.RestartCount += 1 --need to stop handler, timewavewait
 			task.wait(1)
 			local PlayerInfo = StratXLibrary.UI.PlayerInfo
