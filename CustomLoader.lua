@@ -209,7 +209,7 @@ else
 	writefile("StrategiesX/UserConfig/UtilitiesConfig.txt", game:GetService("HttpService"):JSONEncode(UtilitiesConfig))
 end
 
-ConsolePrint("WHITE","Table",UtilitiesConfig)
+--ConsolePrint("WHITE","Table",UtilitiesConfig)
 
 function SaveUtilitiesConfig()
 	UtilitiesTab = UI.UtilitiesTab
