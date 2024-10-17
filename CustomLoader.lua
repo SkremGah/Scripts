@@ -656,7 +656,9 @@ if CheckPlace() then
 			]]
 			return {RewardType, RewardAmount}
 		end
+		warn("Connected?")												
 		StratXLibrary.SignalEndMatch = GetGameState():GetAttributeChangedSignal("GameOver"):Connect(function()
+			warn("Connection Ran!?")													
 			prints("GameOver Changed")
 			if not GetGameState():GetAttribute("GameOver") then --true/false like Value,but not check this Attribute exists
 				return
