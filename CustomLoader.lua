@@ -751,7 +751,7 @@ if CheckPlace() then
 				if AutoSkipCheck then
 					RemoteFunction:InvokeServer("Settings","Update","Auto Skip",true)
 				end
-				task.wait(.5)
+				task.wait(0.5)
 				--if type(FeatureConfig) == "table" and FeatureConfig["JoinLessFeature"].Enabled then
 				--	return
 				--end
@@ -763,7 +763,20 @@ if CheckPlace() then
 				--	task.wait(12)
 				--end
 				prints("Rejoining To Lobby")
-				TeleportHandler(3260590327,2,7)
+				local attemptIndex = 0
+				local success, result
+				local ATTEMPT_LIMIT = 25
+				local RETRY_DELAY = 3														
+				repeat
+					success, result = pcall(function()
+						return TeleportService:TeleportAsync(placeId, players, options)
+					end)
+					attemptIndex += 1
+					if not success then
+						task.wait(RETRY_DELAY)
+					end
+				until success or attemptIndex == ATTEMPT_LIMIT 												
+				--TeleportHandler(3260590327,2,7)
 				--TeleportService:Teleport(3260590327)
 				--StratXLibrary.SignalEndMatch:Disconnect()
 			end
