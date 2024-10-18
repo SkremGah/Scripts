@@ -638,14 +638,30 @@ if CheckPlace() then
 			local RewardType,RewardAmount
 															
           	 	repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
-            		if Rewards[2].content.icon.Image == "rbxassetid://5870325376" then
-               			RewardType = "Coins"
-           		else
-              			RewardType = "Gems"
+			for i , v in ipairs(Rewards:GetChildren()) do
+				warn(v.Name)												
+				if v:IsA("Frame") then
+					warn("v is a Frame")												
+					if v:WaitForChild("content"):FindFirstChild("icon") then
+						warn("v icon found)												
+						if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://5870325376" then
+							warn("ITS COINS!")													
+							RewardType = "Coins"
+							RewardAmount = tonumber(v.content.textLabel.Text)												
+							break
+           					else
+							warn("Arrono... prolly not coins")													
+              						RewardType = "Gems"
+							RewardAmount = tonumber(v.content.textLabel.Text)												
+						end
+					end
+				end
+			end
+			--[[	
+			if Rewards[2]:WaitForChild("content"):WaitForChild("icon").Image == "rbxassetid://5870325376" then
+               			
            		end
-            		RewardAmount = tonumber(Rewards[2].content.textLabel.Text)
-			
-			--[[											
+															
 			if GetPlayerState():GetAttribute("CoinsReward") then
 				RewardType = "Coins"
 				RewardAmount = GetPlayerState():GetAttribute("CoinsReward")
