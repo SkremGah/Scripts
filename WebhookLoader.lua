@@ -66,14 +66,14 @@ local function CheckReward()
 end
 
 local function GetEXP()
-	local RewardAmount
+	local RewardAmount = 100000 -- test
 	repeat task.wait() until Rewards[1] and Rewards[2]
 
 	for i , v in ipairs(Rewards:GetChildren()) do												
 		if v:IsA("Frame") then											
 			if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then												
 				if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://6794340240" then													
-					RewardAmount = tonumber(v.content.textLabel.Text)												
+					RewardAmount = v.content.textLabel.Text												
 					break											
 				end
 			end
