@@ -151,7 +151,7 @@ if UtilitiesConfig.Webhook.UseNewFormat then
          },
       {
             ["name"] = "Spin Tickets:",
-            ["value"] = CommaText(LocalPlayer.SpinTickets.Value).." :ticket:",
+            ["value"] = CommaText(LocalPlayer.SpinTickets.Value).." :tickets:",
             ["inline"] = true
          },
       {
@@ -161,7 +161,7 @@ if UtilitiesConfig.Webhook.UseNewFormat then
          },
       {
             ["name"] = "Timescale Tickets:",
-            ["value"] = CommaText(LocalPlayer.TimescaleTickets.Value).." :ticket:",
+            ["value"] = CommaText(LocalPlayer.TimescaleTickets.Value).." :tickets:",
             ["inline"] = true
          },
       }
