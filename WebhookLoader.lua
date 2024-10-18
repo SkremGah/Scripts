@@ -61,7 +61,7 @@ local function CheckReward()
 end
 
 local function GetEXP()
-	local RewardAmount = 100000 -- test
+	local RewardAmount = "Nothing?" -- Rare Case
 	repeat task.wait() until Rewards[1] and Rewards[2]
 
 	for i , v in ipairs(Rewards:GetChildren()) do												
