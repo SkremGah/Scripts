@@ -769,7 +769,7 @@ if CheckPlace() then
 				local RETRY_DELAY = 3														
 				repeat
 					success, result = pcall(function()
-						return TeleportService:TeleportAsync(placeId, players, options)
+						return TeleportService:Teleport(3260590327)
 					end)
 					attemptIndex += 1
 					if not success then
