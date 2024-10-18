@@ -752,16 +752,16 @@ if CheckPlace() then
 					RemoteFunction:InvokeServer("Settings","Update","Auto Skip",true)
 				end
 				task.wait(.5)
-				if type(FeatureConfig) == "table" and FeatureConfig["JoinLessFeature"].Enabled then
-					return
-				end
-				if WebSocket and WebSocket.connect then
-					pcall(function()
-						local WS = WebSocket.connect("ws://localhost:8126")
-						WS:Send("connect-to-vip-server")
-					end)
-					task.wait(12)
-				end
+				--if type(FeatureConfig) == "table" and FeatureConfig["JoinLessFeature"].Enabled then
+				--	return
+				--end
+				--if WebSocket and WebSocket.connect then
+				--	pcall(function()
+				--		local WS = WebSocket.connect("ws://localhost:8126")
+				--		WS:Send("connect-to-vip-server")
+				--	end)
+				--	task.wait(12)
+				--end
 				prints("Rejoining To Lobby")
 				TeleportHandler(3260590327,2,7)
 				--TeleportService:Teleport(3260590327)
