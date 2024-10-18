@@ -918,13 +918,19 @@ task.spawn(function()
 	UI.PlayerInfo.Coins = PlayerInfoUI:Section(`Coins: {LocalPlayer:WaitForChild("Coins").Value}`)
 	UI.PlayerInfo.Gems = PlayerInfoUI:Section(`Gems: {LocalPlayer:WaitForChild("Gems").Value}`)
 	UI.PlayerInfo.Triumphs = PlayerInfoUI:Section(`Wins: {LocalPlayer:WaitForChild("Triumphs").Value}`)
-	UI.PlayerInfo.Loses = PlayerInfoUI:Section(`Loses: {LocalPlayer:WaitForChild("Loses").Value}`)														
+	UI.PlayerInfo.Loses = PlayerInfoUI:Section(`Loses: {LocalPlayer:WaitForChild("Loses").Value}`)
+	UI.PlayerInfo.TimescaleTickets = PlayerInfoUI:Section(`TimescaleTickets: {LocalPlayer:WaitForChild("TimescaleTickets").Value}`)
+	UI.PlayerInfo.ReviveTickets = PlayerInfoUI:Section(`ReviveTickets: {LocalPlayer:WaitForChild("ReviveTickets").Value}`)
+	UI.PlayerInfo.SpinTickets = PlayerInfoUI:Section(`SpinTickets: {LocalPlayer:WaitForChild("SpinTickets").Value}`)			
 	UI.PlayerInfo.Property = {
 		["Level"] = LocalPlayer.Level.Value,
 		["Coins"] = LocalPlayer.Coins.Value,
 		["Gems"] = LocalPlayer.Gems.Value,
 		["Triumphs"] = LocalPlayer.Triumphs.Value,
-		["Loses"] = LocalPlayer.Loses.Value,														
+		["Loses"] = LocalPlayer.Loses.Value,
+		["TimescaleTickets"] = LocalPlayer.TimescaleTickets.Value,
+		["ReviveTickets"] = LocalPlayer.ReviveTickets.Value,
+		["SpinTickets"] = LocalPlayer.SpinTickets.Value,															
 	}
 end)
 --[[for i,v in next, UI.PlayerInfo.Property do
