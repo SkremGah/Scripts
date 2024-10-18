@@ -68,7 +68,7 @@ StratXLibrary.UtilitiesConfig = {
 		Link = "https://discord.com/api/webhooks/1274382989933154426/KDtDBD17rgEq0nCsyH_wE5Vje9yyQ6QOkptL2TwEGqw70XaWTH4PIBICOvpBnH1Gn95k",
 		HideUser = false,
 		UseNewFormat = true,
-		PlayerInfo = true,
+		 = true,
 		GameInfo = true,
 		TroopsInfo = true,
 		DisableCustomLog = true,
@@ -123,6 +123,7 @@ function ParametersPatch(FuncsName,...)
 end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SkremGah/Scripts/refs/heads/main/OldLogger.lua", true))()
+		
 --[[function ConsolePrint(...)
     print("ConsolePrint",...)
 end
@@ -638,19 +639,14 @@ if CheckPlace() then
 			local RewardType,RewardAmount
 															
           	 	repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
-			for i , v in ipairs(Rewards:GetChildren()) do
-				warn(v.Name)												
-				if v:IsA("Frame") then
-					warn("v is a Frame")												
-					if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then
-						warn("v icon is sigma label")												
-						if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://5870325376" then
-							warn("ITS COINS!")													
+			for i , v in ipairs(Rewards:GetChildren()) do												
+				if v:IsA("Frame") then											
+					if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then											
+						if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://5870325376" then													
 							RewardType = "Coins"
 							RewardAmount = tonumber(v.content.textLabel.Text)												
 							break
-           					else
-							warn("Arrono... prolly not coins")													
+           					else												
               						RewardType = "Gems"
 							RewardAmount = tonumber(v.content.textLabel.Text)												
 						end
@@ -690,7 +686,9 @@ if CheckPlace() then
 			end
 			if UtilitiesConfig.Webhook.Enabled then
 				task.spawn(function()
-					loadstring(game:HttpGet(MainLink.."TDS/Webhook.lua", true))()--loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/Webhook.lua", true))()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/SkremGah/Scripts/refs/heads/main/WebhookLoader.lua", true))()														
+					--loadstring(game:HttpGet(MainLink.."TDS/Webhook.lua", true))()
+					--loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/Webhook.lua", true))()
 					prints("Sent Webhook Log")
 				end)
 			end
@@ -921,12 +919,18 @@ task.spawn(function()
 	UI.PlayerInfo.Gems = PlayerInfoUI:Section(`Gems: {LocalPlayer:WaitForChild("Gems").Value}`)
 	UI.PlayerInfo.Triumphs = PlayerInfoUI:Section(`Wins: {LocalPlayer:WaitForChild("Triumphs").Value}`)
 	UI.PlayerInfo.Loses = PlayerInfoUI:Section(`Loses: {LocalPlayer:WaitForChild("Loses").Value}`)
+	UI.PlayerInfo.TimescaleTickets = PlayerInfoUI:Section(`TimescaleTickets: {LocalPlayer:WaitForChild("TimescaleTickets").Value}`)
+	UI.PlayerInfo.ReviveTickets = PlayerInfoUI:Section(`ReviveTickets: {LocalPlayer:WaitForChild("ReviveTickets").Value}`)
+	UI.PlayerInfo.SpinTickets = PlayerInfoUI:Section(`ReviveTickets: {LocalPlayer:WaitForChild("SpinTickets").Value}`)															
 	UI.PlayerInfo.Property = {
 		["Level"] = LocalPlayer.Level.Value,
 		["Coins"] = LocalPlayer.Coins.Value,
 		["Gems"] = LocalPlayer.Gems.Value,
 		["Triumphs"] = LocalPlayer.Triumphs.Value,
 		["Loses"] = LocalPlayer.Loses.Value,
+		["TimescaleTickets"] = LocalPlayer.TimescaleTickets.Value,
+		["ReviveTickets"] = LocalPlayer.ReviveTickets.Value,
+		["SpinTickets"] = LocalPlayer.SpinTickets.Value,															
 	}
 end)
 --[[for i,v in next, UI.PlayerInfo.Property do
