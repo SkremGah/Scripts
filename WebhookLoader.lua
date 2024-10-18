@@ -100,7 +100,7 @@ local Data = {
 	["content"] = "", --Msg
 	["embeds"] = {
 		{
-			["title"] = `**Strategies X Webhook**`,
+			["title"] = `**Sigma Society Webhook**`,
 			["color"] = CheckColor[GetGameState():GetAttribute("Won")], --decimal
 			["footer"] = {
 				["text"] = `{os.date("%X")} {os.date("%x")}`,
