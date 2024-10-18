@@ -113,6 +113,7 @@ local Data = {
 		}
 	}
 }
+local Exp = GetEXP()
 local WebhookData = {}
 if UtilitiesConfig.Webhook.UseNewFormat then
 	Data.embeds[1].fields = {}
@@ -217,7 +218,7 @@ if UtilitiesConfig.Webhook.UseNewFormat then
 			},
 			{
 				["name"] = "Won Experiences:",
-				["value"] = GetEXP().." :star:",
+				["value"] = Exp.." :star:",
 				["inline"] = true
 			}, 
 		}
