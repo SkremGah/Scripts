@@ -642,8 +642,8 @@ if CheckPlace() then
 				warn(v.Name)												
 				if v:IsA("Frame") then
 					warn("v is a Frame")												
-					if v:WaitForChild("content"):FindFirstChild("icon") then
-						warn("v icon found)												
+					if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then
+						warn("v icon is sigma label")												
 						if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://5870325376" then
 							warn("ITS COINS!")													
 							RewardType = "Coins"
