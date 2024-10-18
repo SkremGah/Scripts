@@ -42,19 +42,14 @@ local function CheckReward()
 	local RewardType,RewardAmount
 	repeat task.wait() until Rewards[1] and Rewards[2]
 
-	for i , v in ipairs(Rewards:GetChildren()) do
-		warn(v.Name)												
-		if v:IsA("Frame") then
-			warn("v is a Frame")												
-			if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then
-				warn("v icon is sigma label")												
-				if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://5870325376" then
-					warn("ITS COINS!")													
+	for i , v in ipairs(Rewards:GetChildren()) do										
+		if v:IsA("Frame") then												
+			if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then												
+				if v:WaitForChild("content"):FindFirstChild("icon").Image == "rbxassetid://5870325376" then												
 					RewardType = "Coins"
 					RewardAmount = tonumber(v.content.textLabel.Text)												
 					break
-				else
-					warn("Arrono... prolly not coins")													
+				else												
 					RewardType = "Gems"
 					RewardAmount = tonumber(v.content.textLabel.Text)												
 				end
