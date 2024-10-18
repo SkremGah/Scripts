@@ -123,7 +123,7 @@ function ParametersPatch(FuncsName,...)
 end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SkremGah/Scripts/refs/heads/main/OldLogger.lua", true))()
-		
+
 --[[function ConsolePrint(...)
     print("ConsolePrint",...)
 end
@@ -637,8 +637,8 @@ if CheckPlace() then
 		local Rewards = Info:WaitForChild("rewards")
 		function CheckReward()												
 			local RewardType,RewardAmount
-															
-          	 	repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
+
+			repeat task.wait() until Rewards:FindFirstChild(1) and Rewards:FindFirstChild(2)--Rewards[1] and Rewards[2]
 			for i , v in ipairs(Rewards:GetChildren()) do												
 				if v:IsA("Frame") then											
 					if v:WaitForChild("content"):FindFirstChild("icon"):IsA("ImageLabel") then											
@@ -646,8 +646,8 @@ if CheckPlace() then
 							RewardType = "Coins"
 							RewardAmount = tonumber(v.content.textLabel.Text)												
 							break
-           					else												
-              						RewardType = "Gems"
+						else												
+							RewardType = "Gems"
 							RewardAmount = tonumber(v.content.textLabel.Text)												
 						end
 					end
@@ -918,19 +918,13 @@ task.spawn(function()
 	UI.PlayerInfo.Coins = PlayerInfoUI:Section(`Coins: {LocalPlayer:WaitForChild("Coins").Value}`)
 	UI.PlayerInfo.Gems = PlayerInfoUI:Section(`Gems: {LocalPlayer:WaitForChild("Gems").Value}`)
 	UI.PlayerInfo.Triumphs = PlayerInfoUI:Section(`Wins: {LocalPlayer:WaitForChild("Triumphs").Value}`)
-	UI.PlayerInfo.Loses = PlayerInfoUI:Section(`Loses: {LocalPlayer:WaitForChild("Loses").Value}`)
-	UI.PlayerInfo.TimescaleTickets = PlayerInfoUI:Section(`TimescaleTickets: {LocalPlayer:WaitForChild("TimescaleTickets").Value}`)
-	UI.PlayerInfo.ReviveTickets = PlayerInfoUI:Section(`ReviveTickets: {LocalPlayer:WaitForChild("ReviveTickets").Value}`)
-	UI.PlayerInfo.SpinTickets = PlayerInfoUI:Section(`ReviveTickets: {LocalPlayer:WaitForChild("SpinTickets").Value}`)															
+	UI.PlayerInfo.Loses = PlayerInfoUI:Section(`Loses: {LocalPlayer:WaitForChild("Loses").Value}`)														
 	UI.PlayerInfo.Property = {
 		["Level"] = LocalPlayer.Level.Value,
 		["Coins"] = LocalPlayer.Coins.Value,
 		["Gems"] = LocalPlayer.Gems.Value,
 		["Triumphs"] = LocalPlayer.Triumphs.Value,
-		["Loses"] = LocalPlayer.Loses.Value,
-		["TimescaleTickets"] = LocalPlayer.TimescaleTickets.Value,
-		["ReviveTickets"] = LocalPlayer.ReviveTickets.Value,
-		["SpinTickets"] = LocalPlayer.SpinTickets.Value,															
+		["Loses"] = LocalPlayer.Loses.Value,														
 	}
 end)
 --[[for i,v in next, UI.PlayerInfo.Property do
