@@ -586,13 +586,13 @@ if CheckPlace() then
 			prints("Timescale: "..tostring(Timescale))
 			prints("Option: "..tostring(TimescaleOption))
 			if CanTimescale == true and Timescale == true then
-				if typeof(TimescaleOption) == "number" and TimescaleOption ~= 0 then
-					if LocalPlayer.TimescaleTickets.Value > 0 then
+				if TimescaleOption ~= 0 then
+					if LocalPlayer.TimescaleTickets.Value >= 1 then
 						task.spawn(function()
 							ReplicatedStorage.RemoteFunction:InvokeServer("TicketsManager", "UnlockTimeScale")
 						end)
 						for i=1, TimescaleOption do
-							task.wait(0.33)
+							task.wait(0.35)
 							task.spawn(function()
 								ReplicatedStorage.RemoteFunction:FireServer("TicketsManager", "CycleTimeScale")
 							end)							
