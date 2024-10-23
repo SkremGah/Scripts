@@ -1,10 +1,10 @@
 local SendRequest = http_request or request or HttpPost or syn.request
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-local MatchGui = LocalPlayer.PlayerGui.ReactGame.Rewards.content.gameOver or LocalPlayer.PlayerGui.RoactGame.Rewards.content.gameOver
-local Info = MatchGui.content.info
+local MatchGui = LocalPlayer.PlayerGui:WaitForChild("ReactGameRewards"):WaitForChild("Frame"):WaitForChild("gameOver")
+local Info = MatchGui:WaitForChild("content"):WaitForChild("info")
 local Stats = Info.stats
-local Rewards = Info.rewards
+local Rewards = Info:WaitForChild("rewards")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Executor = identifyexecutor and identifyexecutor() or "Not Identify"
 local UtilitiesConfig = StratXLibrary.UtilitiesConfig
