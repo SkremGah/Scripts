@@ -583,13 +583,19 @@ if CheckPlace() then
 			repeat task.wait() until GetGameState():GetAttribute("Difficulty")
 			ModeSection.Text = `Mode: {GetGameState():GetAttribute("Difficulty")}`
 			task.wait(1.5)
-			if CanTimescale == true and UtilitiesConfig.Timescale == true then
+			prints("Timescale: "..Timescale)
+			prints("Option: "..Timescale)
+			if CanTimescale == true and Timescale == true then
 				if typeof(TimescaleOption) == "number" and TimescaleOption ~= 0 then
 					if LocalPlayer.TimescaleTickets.Value > 0 then
-						ReplicatedStorage.RemoteFunction:InvokeServer("TicketsManager", "UnlockTimeScale")
-						for i=1, UtilitiesConfig.TimescaleOption do
+						task.spawn(function()
+							ReplicatedStorage.RemoteFunction:InvokeServer("TicketsManager", "UnlockTimeScale")
+						end)
+						for i=1, TimescaleOption do
 							task.wait(0.33)
-							ReplicatedStorage.RemoteFunction:FireServer("TicketsManager", "CycleTimeScale")
+							task.spawn(function()
+								ReplicatedStorage.RemoteFunction:FireServer("TicketsManager", "CycleTimeScale")
+							end)							
 						end
 					end
 				end
