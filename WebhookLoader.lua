@@ -229,6 +229,11 @@ if UtilitiesConfig.Webhook.UseNewFormat then
 				["value"] = Exp.." :star:",
 				["inline"] = true
 			}, 
+			{
+				["name"] = "Won Candy Corn:",
+				["value"] = Math.." :candy:",
+				["inline"] = true
+			}, 
 		}
 		else {}
 	WebhookData.TroopsInfo = if UtilitiesConfig.Webhook.TroopsInfo then
