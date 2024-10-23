@@ -38,8 +38,10 @@ end
 --[[local function CheckStatus()
    return MatchGui.banner.textLabel.Text
 end]]
+
 local function CheckReward()
-	local RewardType,RewardAmount
+	local RewardType
+	local RewardAmount = "Nothing?" -- Rare Case
 	repeat task.wait() until Rewards[1] and Rewards[2]
 
 	for i , v in ipairs(Rewards:GetChildren()) do										
@@ -146,6 +148,11 @@ if UtilitiesConfig.Webhook.UseNewFormat then
 			{
 				["name"] = "Gems:",
 				["value"] = CommaText(PlayerInfo.Gems).." :gem:", --LocalPlayer.Gems.Value
+				["inline"] = true
+			},
+			{
+				["name"] = "Candy Corn:",
+				["value"] = LocalPlayer.PlayerGui.ReactOverridesTopBar.Frame.items["Hexscape Event"].text.Text.." :candy:", --LocalPlayer.Gems.Value
 				["inline"] = true
 			},
 			{
