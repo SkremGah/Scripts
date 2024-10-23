@@ -594,7 +594,7 @@ if CheckPlace() then
 						for i=1, TimescaleOption do
 							task.wait(0.35)
 							task.spawn(function()
-								ReplicatedStorage.RemoteFunction:FireServer("TicketsManager", "CycleTimeScale")
+								ReplicatedStorage.RemoteEvent:FireServer("TicketsManager", "CycleTimeScale")
 							end)							
 						end
 					end
