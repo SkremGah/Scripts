@@ -583,8 +583,8 @@ if CheckPlace() then
 			repeat task.wait() until GetGameState():GetAttribute("Difficulty")
 			ModeSection.Text = `Mode: {GetGameState():GetAttribute("Difficulty")}`
 			task.wait(1.5)
-			prints("Timescale: "..Timescale)
-			prints("Option: "..Timescale)
+			prints("Timescale: "..tostring(Timescale))
+			prints("Option: "..tostring(TimescaleOption))
 			if CanTimescale == true and Timescale == true then
 				if typeof(TimescaleOption) == "number" and TimescaleOption ~= 0 then
 					if LocalPlayer.TimescaleTickets.Value > 0 then
@@ -600,7 +600,7 @@ if CheckPlace() then
 					end
 				end
 			end
-			warn("Can Timescale: "..CanTimescale)
+			prints("Can Timescale: "..tostring(CanTimescale))
 		end)
 		maintab:Section(`Map: {ReplicatedStorage.State.Map.Value}`)
 		maintab:Section("Tower Info:")
