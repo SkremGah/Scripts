@@ -12,6 +12,7 @@ local Items = {
 	Name = "Cookie"
 }
 
+local CanTimescale = true
 local LoadLocal = false
 local MainLink = LoadLocal and "" or "https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/"
 
@@ -53,7 +54,7 @@ StratXLibrary.CurrentCount = StratXLibrary.RestartCount
 --[[StratXLibrary.MultiStratEnabled = true
 getgenv().GameSpoof = "Lobby"]]
 
-StratXLibrary.UtilitiesConfig = {  
+StratXLibrary.UtilitiesConfig = {
 	Camera = tonumber(getgenv().DefaultCam) or 2,
 	LowGraphics = getgenv().PotatoPC or false,
 	BypassGroup = getgenv().GroupBypass or false,
@@ -74,6 +75,9 @@ StratXLibrary.UtilitiesConfig = {
 		DisableCustomLog = true,
 	},
 }
+
+local Timescale = getgenv().Timescale or false
+local TimescaleOption = getgenv().TimescaleOption or 1
 
 if not game:IsLoaded() then
 	game["Loaded"]:Wait()
@@ -510,6 +514,7 @@ if CheckPlace() then
 		end
 	end)
 	if GetVoteState():GetAttribute("Title") == "Ready?" then --Hardcore/Event Solo
+		CanTimescale = false
 		task.spawn(function()
 			repeat task.wait() until StratXLibrary.Executed
 			RemoteFunction:InvokeServer("Voting", "Skip")
@@ -521,6 +526,7 @@ if CheckPlace() then
 			return
 		end
 		if GetVoteState():GetAttribute("Title") == "Ready?" then --Hardcore/Event GameMode
+			CanTimescale = false
 			task.wait(2)
             --[[if not UtilitiesConfig.RestartMatch then
                 repeat task.wait() until UtilitiesConfig.RestartMatch
@@ -576,6 +582,18 @@ if CheckPlace() then
 		task.spawn(function()
 			repeat task.wait() until GetGameState():GetAttribute("Difficulty")
 			ModeSection.Text = `Mode: {GetGameState():GetAttribute("Difficulty")}`
+			task.wait(1.5)
+			if CanTimescale and UtilitiesConfig.Timescale == true then
+				if typeof(TimescaleOption) == "number" and TimescaleOption ~= 0 then
+					if LocalPlayer.TimescaleTickets.Value > 0 then
+						ReplicatedStorage.RemoteFunction:InvokeServer("TicketsManager", "UnlockTimeScale")
+						for i=1, UtilitiesConfig.TimescaleOption do
+							task.wait(0.33)
+							ReplicatedStorage.RemoteFunction:FireServer("TicketsManager", "CycleTimeScale")
+						end
+					end
+				end
+			end
 		end)
 		maintab:Section(`Map: {ReplicatedStorage.State.Map.Value}`)
 		maintab:Section("Tower Info:")
