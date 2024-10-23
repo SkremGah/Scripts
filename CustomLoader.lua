@@ -657,7 +657,7 @@ if CheckPlace() then
 			end
 		end) 
 		--End Of Match
-		local MatchGui = LocalPlayer.PlayerGui:WaitForChild("ReactGame"):WaitForChild("Rewards"):WaitForChild("content"):WaitForChild("gameOver") or LocalPlayer.PlayerGui:WaitForChild("RoactGame"):WaitForChild("Rewards"):WaitForChild("content"):WaitForChild("gameOver")
+		local MatchGui = LocalPlayer.PlayerGui:WaitForChild("ReactGameRewards"):WaitForChild("Frame"):WaitForChild("gameOver"):WaitForChild("content")
 		local Info = MatchGui:WaitForChild("content"):WaitForChild("info")
 		local Rewards = Info:WaitForChild("rewards")
 		function CheckReward()												
