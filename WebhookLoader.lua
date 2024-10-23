@@ -111,6 +111,12 @@ local Data = {
 	}
 }
 local Exp = GetEXP()
+local Before = getgenv().OldCorn
+local Now = LocalPlayer.PlayerGui.ReactOverridesTopBar.Frame.items["Hexscape Event"].text.Text
+Before = string.gsub(Before, "%D", "")
+Now = string.gsub(Now, "%D", "")
+local Math = Now - Before
+Math = tostring(Math)
 local WebhookData = {}
 if UtilitiesConfig.Webhook.UseNewFormat then
 	Data.embeds[1].fields = {}
@@ -253,7 +259,8 @@ else
 		"**------------------ GAME INFO ----------------**"..
 		"\n**Map : ** "..ReplicatedStorage.State.Map.Value.."** | Mode : **"..ReplicatedStorage.State.Difficulty.Value..
 		"\n**Wave : **" ..GetGameState():GetAttribute("Wave").."** | Health : **"..tostring(ReplicatedStorage.State.Health.Current.Value).." ("..tostring(ReplicatedStorage.State.Health.Max.Value)..")".."** | Game Time : **" ..TimeFormat(Stats.duration.Text)..
-		"\n**Won " ..GetReward[1]..": **" ..GetReward[2].."** | Won Experience : **" ..string.split(Rewards[1].content.textLabel.Text," XP")[1].." :star:\n"
+		"\n**Won " ..GetReward[1]..": **" ..GetReward[2].."** | Won Experience : **" ..string.split(Rewards[1].content.textLabel.Text," XP")[1].." :star:\n"..
+		"\n**Won Candy Corn : **"..Math.."**"
 		else ""
 	local TroopsInfo = if UtilitiesConfig.Webhook.TroopsInfo then 
 		"**-------------- TROOPS INFO -----------------**".."```m\n"..CheckTower().."```"
