@@ -583,7 +583,7 @@ if CheckPlace() then
 			repeat task.wait() until GetGameState():GetAttribute("Difficulty")
 			ModeSection.Text = `Mode: {GetGameState():GetAttribute("Difficulty")}`
 			task.wait(1.5)
-			if CanTimescale and UtilitiesConfig.Timescale == true then
+			if CanTimescale == true and UtilitiesConfig.Timescale == true then
 				if typeof(TimescaleOption) == "number" and TimescaleOption ~= 0 then
 					if LocalPlayer.TimescaleTickets.Value > 0 then
 						ReplicatedStorage.RemoteFunction:InvokeServer("TicketsManager", "UnlockTimeScale")
@@ -594,6 +594,7 @@ if CheckPlace() then
 					end
 				end
 			end
+			warn("Can Timescale: "..CanTimescale)
 		end)
 		maintab:Section(`Map: {ReplicatedStorage.State.Map.Value}`)
 		maintab:Section("Tower Info:")
