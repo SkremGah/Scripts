@@ -601,6 +601,7 @@ if CheckPlace() then
 				end
 			end
 			prints("Can Timescale: "..tostring(CanTimescale))
+			getgenv().OldCorn = LocalPlayer.PlayerGui.ReactOverridesTopBar.Frame.items["Hexscape Event"].text.Text
 		end)
 		maintab:Section(`Map: {ReplicatedStorage.State.Map.Value}`)
 		maintab:Section("Tower Info:")
@@ -866,7 +867,7 @@ if CheckPlace() then
 		LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = StratXLibrary.PlatformPart.CFrame +  Vector3.new(0, 3.3, 0)
 	end)
 	if Items.Enabled then
-		UtilitiesTab:Toggle("Auto Pick Items[EVENT]",{default = UtilitiesConfig.AutoPickups or false, flag = "AutoPickups"})
+		UtilitiesTab:Toggle("Auto Pick Items [EVENT]",{default = UtilitiesConfig.AutoPickups or false, flag = "AutoPickups"})
 	end
 	local CamSetting = UtilitiesTab:DropSection("Camera Settings")
 	CamSetting:Button("Normal Camera",function()
